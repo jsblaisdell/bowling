@@ -37,5 +37,16 @@ describe BowlingGame do
         expect(game.score).to eq(20)
       end
     end
+
+    context 'when a strike is thrown' do
+      it 'records the frame score as 10 + total knocked down in the next 2 rounds' do
+        game.roll(10)
+        game.roll(7)
+        game.roll(1)
+        16.times { game.roll(0) }
+
+        expect(game.score).to eq(26)
+      end
+    end
   end
 end
