@@ -1,12 +1,15 @@
 class BowlingGame
-  attr_reader :rolls, :score
+  attr_reader :rolls
 
   def initialize
     @rolls = []
-    @score = 0
+  end
+
+  def score
+    @rolls.reduce(:+)
   end
 
   def roll(num)
-    @score += num
+    @rolls << num
   end
 end
